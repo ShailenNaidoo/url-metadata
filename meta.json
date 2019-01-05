@@ -1,0 +1,205 @@
+[
+  [
+    {
+      "charset": "utf-8"
+    }
+  ],
+  [
+    {
+      "data-react-helmet": "true"
+    },
+    {
+      "http-equiv": "cleartype"
+    },
+    {
+      "content": "on"
+    }
+  ],
+  [
+    {
+      "data-react-helmet": "true"
+    },
+    {
+      "name": "apple-mobile-web-app-capable"
+    },
+    {
+      "content": "yes"
+    }
+  ],
+  [
+    {
+      "data-react-helmet": "true"
+    },
+    {
+      "name": "viewport"
+    },
+    {
+      "content": "width=device-width,minimum-scale=1.0,initial-scale=1,user-scalable=yes"
+    }
+  ],
+  [
+    {
+      "data-react-helmet": "true"
+    },
+    {
+      "property": "og:image"
+    },
+    {
+      "content": "https://static.npmjs.com/338e4905a2684ca96e08c7780fc68412.png"
+    }
+  ],
+  [
+    {
+      "data-react-helmet": "true"
+    },
+    {
+      "name": "msapplication-TileColor"
+    },
+    {
+      "content": "#cb3837"
+    }
+  ],
+  [
+    {
+      "data-react-helmet": "true"
+    },
+    {
+      "name": "msapplication-TileImage"
+    },
+    {
+      "content": "https://static.npmjs.com/7a7ffabbd910fc60161bc04f2cee4160.png"
+    }
+  ],
+  [
+    {
+      "data-react-helmet": "true"
+    },
+    {
+      "name": "msapplication-config"
+    },
+    {
+      "content": "https://static.npmjs.com/668aac888e52ae13cac9cfd71fabd31f.xml"
+    }
+  ],
+  [
+    {
+      "data-react-helmet": "true"
+    },
+    {
+      "name": "theme-color"
+    },
+    {
+      "content": "#cb3837"
+    }
+  ],
+  [
+    {
+      "data-react-helmet": "true"
+    },
+    {
+      "name": "description"
+    },
+    {
+      "content": "structure any website"
+    }
+  ],
+  [
+    {
+      "data-react-helmet": "true"
+    },
+    {
+      "property": "og:description"
+    },
+    {
+      "content": "structure any website"
+    }
+  ],
+  [
+    {
+      "data-react-helmet": "true"
+    },
+    {
+      "property": "og:title"
+    },
+    {
+      "content": "x-ray"
+    }
+  ],
+  [
+    {
+      "data-react-helmet": "true"
+    },
+    {
+      "property": "og:url"
+    },
+    {
+      "content": "https://www.npmjs.com/package/x-ray"
+    }
+  ],
+  [
+    {
+      "data-react-helmet": "true"
+    },
+    {
+      "property": "og:site_name"
+    },
+    {
+      "content": "npm"
+    }
+  ],
+  [
+    {
+      "data-react-helmet": "true"
+    },
+    {
+      "name": "keywords"
+    },
+    {
+      "content": "api,cheerio,scrape,scraper,structure,web"
+    }
+  ],
+  [
+    {
+      "data-react-helmet": "true"
+    },
+    {
+      "name": "twitter:card"
+    },
+    {
+      "content": "summary"
+    }
+  ],
+  [
+    {
+      "data-react-helmet": "true"
+    },
+    {
+      "name": "twitter:url"
+    },
+    {
+      "content": "https://www.npmjs.com/package/x-ray"
+    }
+  ],
+  [
+    {
+      "data-react-helmet": "true"
+    },
+    {
+      "name": "twitter:title"
+    },
+    {
+      "content": "npm: x-ray"
+    }
+  ],
+  [
+    {
+      "data-react-helmet": "true"
+    },
+    {
+      "name": "twitter:description"
+    },
+    {
+      "content": "structure any website"
+    }
+  ]
+]

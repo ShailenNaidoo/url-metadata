@@ -1,0 +1,17 @@
+{
+  "name": "link-preview",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "himalaya": "^1.1.0",
+    "lodash": "^4.17.11",
+    "x-ray": "^2.3.3"
+  }
+}
