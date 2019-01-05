@@ -1,22 +1,22 @@
-import { parse } from "himalaya";
-import * as _ from "lodash";
+const { parse } = require("himalaya");
+const _ = require("lodash");
 
-function tag(tag:string): { tagName: string } {
+function tag(tag) {
   return { tagName: tag }
 }
 
-function getHeadTag(parsed: object) : [object] {
+function getHeadTag(parsed) {
   const [{ children: html }] = _.filter(parsed,tag("html"));
   const [{ children: head }] = _.filter(html,tag("head"));
   return head;
 }
 
-function getTitleTag(head: object) : string {
+function getTitleTag(head) {
   const [{ children: [{ content: title }]}] = _.filter(head,tag("title"));
   return title;
 }
 
-function getOpenGraphTags(head: object) : [object] {
+function getOpenGraphTags(head) {
   return _.chain(head)
     .filter(tag("meta"))
     .map("attributes")
@@ -27,7 +27,7 @@ function getOpenGraphTags(head: object) : [object] {
     .value();
 }
 
-function metadata(h) : { title: string, open_graph_tags: [object] } {
+function metadata(h) {
   const parsed = parse(h);
   const head = getHeadTag(parsed);
   const title = getTitleTag(head);
@@ -39,4 +39,18 @@ function metadata(h) : { title: string, open_graph_tags: [object] } {
   }
 }
 
-export default metadata;
+const functions = require("firebase-functions");
+const axios = require("axios");
+
+module.exports.api = functions.https.onRequest(async (req,res) => {
+  const { query: { url } } = req;
+
+  const { data } = await axios.get(url);
+
+  const meta = metadata(data);
+
+  res.json(meta);
+
+  return meta;
+
+})
