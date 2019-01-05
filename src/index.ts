@@ -1,23 +1,22 @@
 import { parse } from "himalaya";
 import * as _ from "lodash";
-import axios from "axios";
 
 function tag(tag:string): { tagName: string } {
   return { tagName: tag }
 }
 
-function getHeadTag(parsed) {
+function getHeadTag(parsed: object) : [object] {
   const [{ children: html }] = _.filter(parsed,tag("html"));
   const [{ children: head }] = _.filter(html,tag("head"));
   return head;
 }
 
-function getTitleTag(head) {
+function getTitleTag(head: object) : string {
   const [{ children: [{ content: title }]}] = _.filter(head,tag("title"));
   return title;
 }
 
-function getOpenGraphTags(head) {
+function getOpenGraphTags(head: object) : [object] {
   return _.chain(head)
     .filter(tag("meta"))
     .map("attributes")
@@ -28,7 +27,7 @@ function getOpenGraphTags(head) {
     .value();
 }
 
-function metadata(h) {
+function metadata(h) : { title: string, open_graph_tags: [object] } {
   const parsed = parse(h);
   const head = getHeadTag(parsed);
   const title = getTitleTag(head);
@@ -40,6 +39,4 @@ function metadata(h) {
   }
 }
 
-axios.get("https://github.com/ShailenNaidoo/url-metadata").then(res => {
-  console.log(metadata(res.data));
-})
+export default metadata;
