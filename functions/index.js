@@ -24,6 +24,7 @@ function getOpenGraphTags(head) {
     .map((att) => _.assign(...att))
     .flatten()
     .filter("property")
+    .map(({ property, content }) => ({ [property.replace(/og:/,"")]: content }))
     .value();
 }
 
@@ -35,7 +36,7 @@ function metadata(h) {
 
   return {
     title,
-    open_graph_tags: openGraphTags
+    og: openGraphTags
   }
 }
 
