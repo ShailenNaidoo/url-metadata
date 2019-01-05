@@ -42,8 +42,14 @@ function metadata(h) {
 
 const functions = require("firebase-functions");
 const axios = require("axios");
+const express = require("express");
+const cors = require("cors");
 
-module.exports.api = functions.https.onRequest(async (req,res) => {
+const app = express();
+
+app.use(cors());
+
+app.get("/",async (req,res) => {
   const { query: { url } } = req;
 
   const { data } = await axios.get(url);
@@ -53,5 +59,6 @@ module.exports.api = functions.https.onRequest(async (req,res) => {
   res.json(meta);
 
   return meta;
-
 })
+
+module.exports.api = functions.https.onRequest(app);
