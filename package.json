@@ -1,0 +1,26 @@
+{
+  "name": "webdata",
+  "version": "1.0.0",
+  "description": "WebData is a free online REST API that you can use when you want to get any websites meta tag information relating to the Open Graph Protocol",
+  "main": "functions/index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs && firebase deploy --only hosting"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShailenNaidoo/url-metadata.git"
+  },
+  "author": "Shailen Naidoo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShailenNaidoo/url-metadata/issues"
+  },
+  "homepage": "https://github.com/ShailenNaidoo/url-metadata#readme",
+  "devDependencies": {
+    "vuepress-theme-dark-new": "^0.1.2"
+  }
+}
