@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "url-metadata"
+  },
+  "targets": {
+    "url-metadata": {
+      "hosting": {
+        "webdata": [
+          "webdata"
+        ],
+        "url-metadata": [
+          "url-metadata"
+        ]
+      }
+    }
   }
 }
