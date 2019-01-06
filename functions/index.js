@@ -36,7 +36,7 @@ function metadata(h) {
 
   return {
     title,
-    og: openGraphTags
+    og: _.assign(...openGraphTags)
   }
 }
 

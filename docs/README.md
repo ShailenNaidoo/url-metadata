@@ -18,6 +18,7 @@ fetch(`https://url-metadata.firebaseapp.com?url=${url}`)
 ## What is Web Metadata?
 
 Webapp metadata is basically just data that describes what exactly a site is all about, like for example, **YouTube** is a video sharing platform on the web, therefore, it should have metadata that describes that.
+
 ### How does a website store metadata?
 
 ```html

@@ -1,8 +1,12 @@
 module.exports = {
   title: 'WebData',
-  description: "",
+  head: [
+    ["link",{ rel: "icon", href: "/logo.png" }]
+  ],
+  description: "WebData is a free online REST API that you can use when you want to get any websites meta tag information relating to the Open Graph Protocol",
   themeConfig: {
     search: false,
+    sidebarDepth: 2,
     sidebar: [
       "/",
       "/guide/"
@@ -10,11 +14,11 @@ module.exports = {
     nav: [
       {
         text: "Demo",
-        link: ""
+        link: "https://jsbin.com/rekozec/edit?js,console"
       },
       {
         text: "GitHub",
-        link: "https://github.com/ShailenNaidoo/url-metadata"
+        link: "https://github.com/ShailenNaidoo/webdata"
       }
     ]
   }
