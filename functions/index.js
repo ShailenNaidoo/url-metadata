@@ -40,10 +40,11 @@ function metadata(h) {
   }
 }
 
-const functions = require("firebase-functions");
 const axios = require("axios");
+const functions = require("firebase-functions");
 const express = require("express");
 const cors = require("cors");
+const puppeteer = require("puppeteer");
 
 const app = express();
 
@@ -52,13 +53,31 @@ app.use(cors());
 app.get("/",async (req,res) => {
   const { query: { url } } = req;
 
-  const { data } = await axios.get(url);
-
-  const meta = metadata(data);
-
-  res.json(meta);
-
-  return meta;
+  if(url) {
+    const { data } = await axios.get(url);
+  
+    const meta = await (async () => {
+      const browser = await puppeteer.launch();
+      const page = await browser.newPage();
+      await page.goto(url);
+      const h = metadata(await page.content());
+      browser.close();
+    
+      return h;
+    
+    })()
+  
+    res.json(meta);
+  
+    return meta;
+  } else {
+    res.json({
+      error: true,
+      message: "No url was passed to API"
+    })
+  }
 })
 
 module.exports.api = functions.https.onRequest(app);
+
+

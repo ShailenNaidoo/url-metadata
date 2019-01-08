@@ -18,6 +18,15 @@ module.exports = {
         ]
       },
       {
+        title: "Frontend JS Libraries",
+        collapsable: false,
+        children: [
+          "/libraries/vue/",
+          "/libraries/react/",
+          "/libraries/angular/"
+        ]
+      },
+      {
         title: "Info",
         collapsable: false,
         children: [

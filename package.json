@@ -22,5 +22,8 @@
   "homepage": "https://github.com/ShailenNaidoo/url-metadata#readme",
   "devDependencies": {
     "vuepress-theme-dark-new": "^0.1.2"
+  },
+  "dependencies": {
+    "puppeteer": "^1.11.0"
   }
 }
