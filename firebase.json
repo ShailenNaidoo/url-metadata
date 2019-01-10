@@ -1,18 +1,5 @@
 {
-  "hosting": [
-    {
-      "target": "webdata",
-      "public": "docs/.vuepress/dist"
-    },
-    {
-      "target": "url-metadata",
-      "public": "public",
-      "rewrites": [
-        {
-          "source": "/",
-          "function": "api"
-        }
-      ]
-    }
-  ]
+  "hosting": {
+    "public": "docs/.vuepress/dist"
+  }
 }

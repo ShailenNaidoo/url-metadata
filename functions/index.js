@@ -53,31 +53,34 @@ app.use(cors());
 app.get("/",async (req,res) => {
   const { query: { url } } = req;
 
+  const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
+
   if(url) {
-    const { data } = await axios.get(url);
-  
-    const meta = await (async () => {
-      const browser = await puppeteer.launch();
+    try {
+      const { data } = await axios.get(url);
+      const meta = metadata(data);
+      return res.json(meta);
+    } catch(e) {
+      
       const page = await browser.newPage();
+      await page.setRequestInterception(true);
+
+      page.on("request",req => req.resourceType() == "stylesheet" || req.resourceType() == "font" || req.resourceType() == "image" ? req.abort() : req.continue());
+
       await page.goto(url);
-      const h = metadata(await page.content());
-      browser.close();
     
-      return h;
-    
-    })()
-  
-    res.json(meta);
-  
-    return meta;
+      const meta = metadata(await page.content())
+      await browser.close();
+      return res.json(meta);
+    }
   } else {
-    res.json({
+    return res.json({
       error: true,
       message: "No url was passed to API"
-    })
+    });
   }
 })
 
-module.exports.api = functions.https.onRequest(app);
+module.exports.api = functions.runWith({ memory: "2GB", timeoutSeconds: 60 }).https.onRequest(app);
 
 
