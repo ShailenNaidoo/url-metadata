@@ -9,7 +9,7 @@ Run this code in a console or from any site:
 ```js
 const url = "https://github.com/"
 
-fetch(`https://url-metadata.firebaseapp.com?url=${url}`)
+fetch(`https://us-central1-webdata-eeba3.cloudfunctions.net/api?url=${url}`)
   .then(response => response.json())
   .then(json => console.log(json));
 

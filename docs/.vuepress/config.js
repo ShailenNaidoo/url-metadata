@@ -39,7 +39,7 @@ module.exports = {
         text: "Examples",
         items: [
           { text: "Vue", link: "https://codepen.io/Naidoo/pen/QzryBj?editors=1010" },
-          { text: "React", link: "https://codepen.io/schalkventer/pen/xmjwGK" },
+          { text: "React", link: "https://codepen.io/Naidoo/pen/BvOGpo" },
           { text: "Angular", link: "" }
         ]
       },

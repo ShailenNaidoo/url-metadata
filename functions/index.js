@@ -1,4 +1,5 @@
 const { parse } = require("himalaya");
+const url = require("url-assembler");
 const _ = require("lodash");
 
 function tag(tag) {
@@ -28,7 +29,26 @@ function getOpenGraphTags(head) {
     .value();
 }
 
-function metadata(h) {
+async function getManifestJSON(head,base) {
+  const links =_.chain(head)
+    .filter(tag("link"))
+    .map("attributes")
+    .map((att) => _.map(att,({ key, value }) => ({ [key]: value })))
+    .map((att) => _.assign(...att))
+    .filter({ rel: "manifest" })
+    .value();
+
+    try {
+      const { data } = await axios(url(base).segment(links[0].href).toString())
+      return data;
+    } catch(e) {
+      return null;
+    }
+
+  
+}
+
+async function metadata(h,base) {
   const parsed = parse(h);
   const head = getHeadTag(parsed);
   const title = getTitleTag(head);
@@ -36,7 +56,8 @@ function metadata(h) {
 
   return {
     title,
-    og: _.assign(...openGraphTags)
+    og: _.assign(...openGraphTags),
+    manifest: await getManifestJSON(head,base)
   }
 }
 
@@ -46,41 +67,37 @@ const express = require("express");
 const cors = require("cors");
 const puppeteer = require("puppeteer");
 
-const app = express();
+module.exports.api = functions.runWith({ memory: "2GB", timeoutSeconds: 60 }).https.onRequest(async (req,res) => {
+  return cors()(req,res,async () => {
+    const { query: { url } } = req;
 
-app.use(cors());
+    const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
 
-app.get("/",async (req,res) => {
-  const { query: { url } } = req;
+    if(url) {
+      try {
+        const { data } = await axios.get(url);
+        const meta = await metadata(data,url);
+        return res.json(meta);
+      } catch(e) {
+        
+        const page = await browser.newPage();
+        await page.setRequestInterception(true);
 
-  const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
+        page.on("request",req => req.resourceType() == "stylesheet" || req.resourceType() == "font" || req.resourceType() == "image" ? req.abort() : req.continue());
 
-  if(url) {
-    try {
-      const { data } = await axios.get(url);
-      const meta = metadata(data);
-      return res.json(meta);
-    } catch(e) {
+        await page.goto(url);
       
-      const page = await browser.newPage();
-      await page.setRequestInterception(true);
-
-      page.on("request",req => req.resourceType() == "stylesheet" || req.resourceType() == "font" || req.resourceType() == "image" ? req.abort() : req.continue());
-
-      await page.goto(url);
-    
-      const meta = metadata(await page.content())
-      await browser.close();
-      return res.json(meta);
+        const meta = await metadata(await page.content(),url)
+        await browser.close();
+        return res.json(meta);
+      }
+    } else {
+      return res.json({
+        error: true,
+        message: "No url was passed to API"
+      });
     }
-  } else {
-    return res.json({
-      error: true,
-      message: "No url was passed to API"
-    });
-  }
-})
-
-module.exports.api = functions.runWith({ memory: "2GB", timeoutSeconds: 60 }).https.onRequest(app);
+  });
+});
 
 

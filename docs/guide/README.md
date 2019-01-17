@@ -8,13 +8,13 @@ The API consists of three parts:
 
 | Property | Value |
 | -------- | ----- |
-| Base URL | `https://url-metadata.firebaseapp.com` |
+| Base URL | `https://us-central1-webdata-eeba3.cloudfunctions.net/api` |
 | Parameter | `url` |
 | Website URL | `https://github.com/ShailenNaidoo/webdata` |
 
 ### JSON Response
 
-[Extract GitHub Open Graph Protocol Tags](https://url-metadata.firebaseapp.com/?url=https://github.com/ShailenNaidoo/webdata) after you click the link, you should get a **JSON** response back which looks exactly like the one below
+[Extract GitHub Open Graph Protocol Tags](https://us-central1-webdata-eeba3.cloudfunctions.net/api?url=https://github.com/ShailenNaidoo/webdata) after you click the link, you should get a **JSON** response back which looks exactly like the one below
 
 ```json
 {
@@ -42,6 +42,6 @@ The API consists of three parts:
 
 There are two options for you to choose from:
 
-* [No fancy script method](https://url-metadata.firebaseapp.com?url=https://github.com/ShailenNaidoo/webdata)
+* [No fancy script method](https://us-central1-webdata-eeba3.cloudfunctions.net/api?url=https://github.com/ShailenNaidoo/webdata)
 
 * [Fancy script method](https://jsbin.com/rekozec/edit?js,console) 
