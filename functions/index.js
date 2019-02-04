@@ -1,5 +1,6 @@
 const { parse } = require("himalaya");
 const url = require("url-assembler");
+const urlParse = require("url-parse");
 const _ = require("lodash");
 
 function tag(tag) {
@@ -39,7 +40,7 @@ async function getManifestJSON(head,base) {
     .value();
 
     try {
-      const { data } = await axios(url(base).segment(links[0].href).toString())
+      const { data } = await axios(url(urlParse(base).origin).segment(links[0].href).toString())
       return data;
     } catch(e) {
       return null;

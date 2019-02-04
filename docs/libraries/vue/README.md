@@ -12,6 +12,10 @@ Linxios is a Vue component that utilizes the **WebData API** to provide you with
 You could build beautiful link previews like the **Slack** example above
 :::
 
+::: tip
+The component makes use of the Vue.js' [Slot Scope](https://vuejs.org/v2/guide/components-slots.html#Scoped-Slots) API
+:::
+
 #### Why the name Linxios?
 
 The name was inspired from the popular AJAX library **Axios**, because axios provides a little more features than the generic **Fetch** API. Linxios is more than just a generic link preview component :wink:
@@ -29,6 +33,16 @@ Feel free to try out your own site url `<linxios url="<your url>"/>`
 ```
 npm i --save @webdataorg/linxios-vue
 ```
+
+#### CDN
+
+```html
+<head>
+  <!-- all your generic head tags -->
+  <script src="https://unpkg.com/@webdataorg/linxios-vue@1.1.0/dist/linxios-vue.min.js">
+</head>
+```
+
 #### Global
 
 ```js
@@ -69,10 +83,6 @@ export default {
 
 ### API
 
-::: tip
-The component makes use of the Vue.js' [Slot Scope](https://vuejs.org/v2/guide/components-slots.html#Scoped-Slots) API
-:::
-
 #### Slot Scope Props Structure
 
 ```
@@ -86,9 +96,11 @@ The component makes use of the Vue.js' [Slot Scope](https://vuejs.org/v2/guide/c
         ...
         ...
       }
+      manifest
     }
     loading
     loaded
+    imageLoading
     imageLoaded
   }
   actions {
@@ -103,10 +115,11 @@ The slot scope props structure is pretty simple, it has two root props called **
 
 | Property | Info |
 | -------- | ---- | 
-| `meta` | contains the metadata about the site url provided |
+| `meta` | contains the metadata about the site url provided. Refer to the **WebData API** Guide |
 | `loading` | default value is `false` and is set to `true` when AJAX request is made then set back to `false` once AJAX is complete. Perfect for toggling the loader state | 
 | `loaded` | default value is `false` and then set to `true` once AJAX request is complete |
-| `imageLoaded` | default value is `false` and set to `true` once `setImageLoaded` method is invoked by `@load` event on an image. Perfect for displaying content placeholders while image is being rendered |
+| `imageLoading` | default value is `true` and set to `false` once `setImageLoaded` method is invoked by `@load` event on an image  |
+| `imageLoaded` | default value is `false` and set to `true` once `setImageLoaded` method is invoked by `@load` event on an image |
 
 #### Meta Props
 
@@ -115,7 +128,8 @@ The props found in the **meta prop** are extracted from `html > head > [meta]`
 | Property | Info |
 | -------- | ---- |
 | `title` | Extracted from `<title></title>` |
-| `og` | Extracted from `<meta proptery="og:*" content="*">`. For all possible `og` meta tags, refer to [Open Graph Protocol](http://ogp.me/)
+| `og` | Extracted from `<meta proptery="og:*" content="*">`. For all possible `og` meta tags, refer to [Open Graph Protocol](http://ogp.me/) |
+| `manifest` | Extracted if site contains a `manifest.json` file |
 
 #### Actions Props
 
