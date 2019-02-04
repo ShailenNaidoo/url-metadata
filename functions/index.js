@@ -55,10 +55,13 @@ async function metadata(h,base) {
   const title = getTitleTag(head);
   const openGraphTags = getOpenGraphTags(head);
 
+  const manifest = await getManifestJSON(head,base);
+
   return {
     title,
     og: _.assign(...openGraphTags),
-    manifest: await getManifestJSON(head,base)
+    manifest,
+    pwa: manifest ? true : false
   }
 }
 

@@ -1,0 +1,28 @@
+[debug] [2019-02-04T20:03:03.449Z] ----------------------------------------------------------------------
+[debug] [2019-02-04T20:03:03.454Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\shail\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions
+[debug] [2019-02-04T20:03:03.455Z] CLI Version:   6.3.0
+[debug] [2019-02-04T20:03:03.455Z] Platform:      win32
+[debug] [2019-02-04T20:03:03.455Z] Node Version:  v10.13.0
+[debug] [2019-02-04T20:03:03.458Z] Time:          Mon Feb 04 2019 22:03:03 GMT+0200 (South Africa Standard Time)
+[debug] [2019-02-04T20:03:03.458Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-02-04T20:03:03.484Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-02-04T20:03:03.485Z] > authorizing via signed-in user
+[debug] [2019-02-04T20:03:03.486Z] [iam] checking project webdata-eeba3 for permissions ["firebase.projects.get"]
+[debug] [2019-02-04T20:03:03.490Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/webdata-eeba3:testIamPermissions  
+
+[debug] [2019-02-04T20:03:06.129Z] <<< HTTP RESPONSE 200
+[debug] [2019-02-04T20:03:06.139Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/webdata-eeba3  
+ 
+[debug] [2019-02-04T20:03:08.259Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\shail\Projects\Personal\webdata'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2019-02-04T20:03:10.403Z] Fetching environment
+[debug] [2019-02-04T20:03:10.408Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/1030980845570:getServerAppConfig  
+ 
+[debug] [2019-02-04T20:03:11.946Z] <<< HTTP RESPONSE 200
+[debug] [2019-02-04T20:03:11.948Z] Starting @google-cloud/functions-emulator
+[debug] [2019-02-04T20:03:16.063Z] Parsing function triggers
+[info] +  functions: api: http://localhost:5000/webdata-eeba3/us-central1/api
