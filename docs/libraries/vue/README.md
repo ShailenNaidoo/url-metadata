@@ -97,6 +97,7 @@ export default {
         ...
       }
       manifest
+      pwa
     }
     loading
     loaded
@@ -130,6 +131,7 @@ The props found in the **meta prop** are extracted from `html > head > [meta]`
 | `title` | Extracted from `<title></title>` |
 | `og` | Extracted from `<meta proptery="og:*" content="*">`. For all possible `og` meta tags, refer to [Open Graph Protocol](http://ogp.me/) |
 | `manifest` | Extracted if site contains a `manifest.json` file |
+| `pwa` | If `manifest` exists, then is `true` |
 
 #### Actions Props
 

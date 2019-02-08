@@ -67,8 +67,9 @@ The API consists of three parts:
         "sizes": "76x76",
         "src": "https://github.githubassets.com/apple-touch-icon-76x76.png"
       }
-    ] 
-  }
+    ]
+  },
+  pwa: true
 }
 
 ```
@@ -79,6 +80,7 @@ The API consists of three parts:
 | `title` | Extracted from the `<title>` tag |
 | `og` | Extracted data from all `<meta>` tags that conform to the [Open Graph Protocol](http://ogp.me/) |
 | `manifest` | Extracted from the `<link>` tag where `rel="manifest"` |
+| `pwa` | If `manifest` exists, then is `true` |
 
 ### Demo
 
