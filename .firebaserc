@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "webdata-eeba3"
+  },
+  "targets": {
+    "webdata-eeba3": {
+      "hosting": {
+        "docs": [
+          "webdata-eeba3"
+        ]
+      }
+    }
   }
 }
