@@ -34,7 +34,7 @@ function getOpenGraphMetaTags(head) {
 }
 
 async function getManifestJSON({ head, url: base }) {
-  const [{ href }] =_.chain(head)
+  const links =_.chain(head)
     .filter(tag("link"))
     .map("attributes")
     .map((att) => _.map(att,({ key, value }) => ({ [key]: value })))
@@ -43,7 +43,7 @@ async function getManifestJSON({ head, url: base }) {
     .value();
 
   try {
-    const { data: manifest } = await axios(url(urlParse(base).origin).segment(href).toString());
+    const { data: manifest } = await axios(url(urlParse(base).origin).segment(links[0].href).toString());
     return manifest;
   } catch(e) {
     return null;

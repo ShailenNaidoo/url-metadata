@@ -1,28 +1,28 @@
-[debug] [2019-02-08T11:27:54.419Z] ----------------------------------------------------------------------
-[debug] [2019-02-08T11:27:54.422Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\shail\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions
-[debug] [2019-02-08T11:27:54.422Z] CLI Version:   6.3.1
-[debug] [2019-02-08T11:27:54.422Z] Platform:      win32
-[debug] [2019-02-08T11:27:54.422Z] Node Version:  v10.13.0
-[debug] [2019-02-08T11:27:54.423Z] Time:          Fri Feb 08 2019 13:27:54 GMT+0200 (South Africa Standard Time)
-[debug] [2019-02-08T11:27:54.423Z] ----------------------------------------------------------------------
+[debug] [2019-02-08T11:34:24.626Z] ----------------------------------------------------------------------
+[debug] [2019-02-08T11:34:24.629Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\shail\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions
+[debug] [2019-02-08T11:34:24.629Z] CLI Version:   6.3.1
+[debug] [2019-02-08T11:34:24.629Z] Platform:      win32
+[debug] [2019-02-08T11:34:24.629Z] Node Version:  v10.13.0
+[debug] [2019-02-08T11:34:24.630Z] Time:          Fri Feb 08 2019 13:34:24 GMT+0200 (South Africa Standard Time)
+[debug] [2019-02-08T11:34:24.630Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2019-02-08T11:27:54.434Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2019-02-08T11:27:54.435Z] > authorizing via signed-in user
-[debug] [2019-02-08T11:27:54.435Z] [iam] checking project webdata-eeba3 for permissions ["firebase.projects.get"]
-[debug] [2019-02-08T11:27:54.437Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/webdata-eeba3:testIamPermissions  
+[debug] [2019-02-08T11:34:24.642Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-02-08T11:34:24.643Z] > authorizing via signed-in user
+[debug] [2019-02-08T11:34:24.643Z] [iam] checking project webdata-eeba3 for permissions ["firebase.projects.get"]
+[debug] [2019-02-08T11:34:24.645Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/webdata-eeba3:testIamPermissions  
 
-[debug] [2019-02-08T11:27:56.501Z] <<< HTTP RESPONSE 200
-[debug] [2019-02-08T11:27:56.503Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/webdata-eeba3  
+[debug] [2019-02-08T11:34:26.831Z] <<< HTTP RESPONSE 200
+[debug] [2019-02-08T11:34:26.833Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/webdata-eeba3  
  
-[debug] [2019-02-08T11:27:58.389Z] <<< HTTP RESPONSE 200
+[debug] [2019-02-08T11:34:28.701Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from 'C:\Users\shail\Projects\Personal\webdata'...
 [info] 
 [info] i  functions: Preparing to emulate functions.
-[debug] [2019-02-08T11:27:59.102Z] Fetching environment
-[debug] [2019-02-08T11:27:59.104Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/1030980845570:getServerAppConfig  
+[debug] [2019-02-08T11:34:29.426Z] Fetching environment
+[debug] [2019-02-08T11:34:29.429Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/1030980845570:getServerAppConfig  
  
-[debug] [2019-02-08T11:27:59.935Z] <<< HTTP RESPONSE 200
-[debug] [2019-02-08T11:27:59.935Z] Starting @google-cloud/functions-emulator
-[debug] [2019-02-08T11:28:01.961Z] Parsing function triggers
+[debug] [2019-02-08T11:34:30.226Z] <<< HTTP RESPONSE 200
+[debug] [2019-02-08T11:34:30.228Z] Starting @google-cloud/functions-emulator
+[debug] [2019-02-08T11:34:32.271Z] Parsing function triggers
 [info] +  functions: api: http://localhost:5000/webdata-eeba3/us-central1/api
