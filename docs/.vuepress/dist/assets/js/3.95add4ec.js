@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{167:function(n,e,s){"use strict";s.r(e);var t={props:["name"]},a=s(0),i=Object(a.a)(t,function(){var n=this.$createElement;return(this._self._c||n)("i",{class:"fab fa-"+this.name})},[],!1,null,null,null);i.options.__file="Icon.vue";e.default=i.exports}}]);
