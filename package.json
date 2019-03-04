@@ -2,13 +2,16 @@
   "name": "webdata",
   "version": "1.0.0",
   "description": "WebData is a free online REST API that you can use when you want to get any websites meta tag information relating to the Open Graph Protocol",
-  "main": "functions/index.js",
+  "main": "index.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs && firebase deploy --only hosting"
+    "docs:build": "vuepress build docs && firebase deploy --only hosting",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "deploy": "gcloud app deploy --project webdata-eeba3"
   },
   "repository": {
     "type": "git",
@@ -25,6 +28,16 @@
     "vuepress-theme-dark-new": "^0.1.2"
   },
   "dependencies": {
-    "puppeteer": "^1.11.0"
+    "apollo-server-express": "^2.4.8",
+    "axios": "^0.18.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "graphql": "^14.1.1",
+    "graphql-custom-types": "^1.5.0",
+    "himalaya": "^1.1.0",
+    "lodash": "^4.17.11",
+    "node-cache": "^4.2.0",
+    "url-assembler": "^2.0.0",
+    "url-parse": "^1.4.4"
   }
 }
