@@ -12,11 +12,12 @@ app.use(cors());
 app.use(json());
 app.use("/",express.static("./docs/.vuepress/dist"));
 
-app.get("/api",getHandlerURLQuery);
 app.get("/",(req,res) => res.sendFile("./docs/.vuepress/dist/index.html"));
 
-app.post("/api/rest",postHandlerURLJSON);
+app.get("/api",getHandlerURLQuery);
 
-app.post("/api/rest/multi",postHandlerURLSJSON);
+app.post("/api",postHandlerURLJSON);
+
+app.post("/api/multi",postHandlerURLSJSON);
 
 app.listen(8080,() => console.log("Server running"));
