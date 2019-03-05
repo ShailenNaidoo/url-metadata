@@ -1,6 +1,6 @@
 # Introduction
 
-**WebData** is a free online **REST API** that you can use when you want to get any websites `meta` tag information relating to the [**Open Graph Protocol**](http://ogp.me/), `manifest.json` and if it's a **PWA**
+**WebData** is a free online **REST API** that you can use when you want to get any websites `meta` tag information relating to the [**Open Graph Protocol**](http://ogp.me/), `manifest.json` and can tell if a site is a **PWA** or not
 
 ### Example
 
