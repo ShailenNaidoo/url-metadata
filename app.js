@@ -10,11 +10,13 @@ graphql.applyMiddleware({ app, path: "/api/graphql" });
 
 app.use(cors());
 app.use(json());
+app.use("/",express.static("./docs/.vuepress/dist"));
 
-app.get("/",getHandlerURLQuery);
+app.get("/api",getHandlerURLQuery);
+app.get("/",(req,res) => res.sendFile("./docs/.vuepress/dist/index.html"));
 
-app.post("/",postHandlerURLJSON);
+app.post("/api/rest",postHandlerURLJSON);
 
-app.post("/multi",postHandlerURLSJSON);
+app.post("/api/rest/multi",postHandlerURLSJSON);
 
 app.listen(8080,() => console.log("Server running"));
