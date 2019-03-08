@@ -1,6 +1,6 @@
 # Introduction
 
-**WebData** is a free online **REST API** that you can use when you want to get any websites `meta` tag information relating to the [**Open Graph Protocol**](http://ogp.me/)
+**WebData** is a free online **REST and GraphQL API** that you can use when you want to get any websites `meta` tag information relating to the [**Open Graph Protocol**](http://ogp.me/), `manifest.json` and can tell if a site is a **PWA** or not
 
 ### Example
 
@@ -9,7 +9,7 @@ Run this code in a console or from any site:
 ```js
 const url = "https://github.com/"
 
-fetch(`https://us-central1-webdata-eeba3.cloudfunctions.net/api?url=${url}`)
+fetch(`https://webdataapi.co.za/api?url=${url}`)
   .then(response => response.json())
   .then(json => console.log(json));
 

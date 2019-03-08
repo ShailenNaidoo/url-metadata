@@ -8,7 +8,7 @@
   },
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs && firebase deploy --only hosting",
+    "docs:build": "vuepress build docs",
     "start": "node app.js",
     "dev": "nodemon app.js",
     "deploy": "gcloud app deploy --project webdata-eeba3"
@@ -32,6 +32,7 @@
     "axios": "^0.18.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
+    "express-rate-limit": "^3.4.0",
     "graphql": "^14.1.1",
     "graphql-custom-types": "^1.5.0",
     "himalaya": "^1.1.0",
