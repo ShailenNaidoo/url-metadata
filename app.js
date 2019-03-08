@@ -1,19 +1,13 @@
 const express = require("express");
 const { json } = require("express");
 const cors = require("cors");
-const rateLimit = require("express-rate-limit");
+const limiter = require("./limiter");
 const { getHandlerURLQuery, postHandlerURLJSON, postHandlerURLSJSON } = require("./handlers");
 const graphql = require("./graphql");
 
 const app = express();
 
 app.enable("trust proxy");
-
-const limiter = rateLimit({
-  windowMs: 10000,
-  max: 1000
-});
-
 
 app.use("/api/",limiter);
 app.use("/api/graphql",limiter);
