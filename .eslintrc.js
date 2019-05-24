@@ -13,5 +13,6 @@ module.exports = {
         "ecmaVersion": 2018
     },
     "rules": {
+        "import/newline-after-import": 'off'
     }
 };
