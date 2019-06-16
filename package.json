@@ -25,6 +25,8 @@
   "homepage": "https://github.com/ShailenNaidoo/url-metadata#readme",
   "devDependencies": {
     "@types/jsdom": "^12.2.3",
+    "@typescript-eslint/eslint-plugin": "^1.10.2",
+    "@typescript-eslint/parser": "^1.10.2",
     "@vuepress/plugin-google-analytics": "^1.0.0-alpha.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
@@ -44,6 +46,7 @@
     "jsdom": "^15.1.0",
     "lodash": "^4.17.11",
     "node-cache": "^4.2.0",
+    "typescript": "^3.5.2",
     "url-assembler": "^2.0.0",
     "url-parse": "^1.4.4"
   }

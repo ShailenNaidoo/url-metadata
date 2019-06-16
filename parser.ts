@@ -1,17 +1,42 @@
 import { JSDOM } from 'jsdom';
 
-const createHTMLInstance = (html: string) => new JSDOM(html);
+interface OpenGraphTags {
+  title?: string;
+  url?: string;
+  siteName?: string;
+  description?: string;
+  image?: string;
+  [x: string]: string;
+}
 
-const getHTMLTitle = (htmlInstance: JSDOM) => htmlInstance.window.document.title;
+interface MetaData {
+  title: string;
+  og: OpenGraphTags;
+}
 
-const getHTMLOpenGraphTags = (htmlInstance: JSDOM) => [...htmlInstance.window.document.querySelectorAll('meta[property]')]
-  .filter(meta => meta.getAttribute('property').search(/og:/) > -1)
-  .map(meta => ({ [meta.getAttribute('property').replace(/og:/, '')]: meta.getAttribute('content') }))
-  .reduce((result, value) => ({ ...result, ...value }), {});
+const createHTMLInstance = (html: string): JSDOM => new JSDOM(html);
 
-const createHTMLMetadataObject = (htmlInstance: JSDOM) => ({
+const getHTMLTitle = (htmlInstance: JSDOM): string => htmlInstance.window.document.title;
+
+const filterOpenGraphTags = (meta: Element): boolean => meta.getAttribute('property').search(/og:/) > -1;
+
+const mapOpenGraphTags = (meta: Element): OpenGraphTags => ({
+  [meta.getAttribute('property').replace(/og:/, '')]: meta.getAttribute('content'),
+});
+
+const reduceOpenGraphTags = (result: OpenGraphTags, value: OpenGraphTags): OpenGraphTags => ({
+  ...result,
+  ...value,
+});
+
+const getHTMLOpenGraphTags = (htmlInstance: JSDOM): OpenGraphTags => [...htmlInstance.window.document.querySelectorAll('meta[property]')]
+  .filter(filterOpenGraphTags)
+  .map(mapOpenGraphTags)
+  .reduce(reduceOpenGraphTags, {});
+
+const createHTMLMetadataObject = (htmlInstance: JSDOM): MetaData => ({
   title: getHTMLTitle(htmlInstance),
   og: getHTMLOpenGraphTags(htmlInstance),
 });
 
-export const parser = (htmlFromSource: string) => createHTMLMetadataObject(createHTMLInstance(htmlFromSource));
+export const parser = (htmlFromSource: string): MetaData => createHTMLMetadataObject(createHTMLInstance(htmlFromSource));
