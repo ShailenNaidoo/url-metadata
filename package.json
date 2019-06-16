@@ -24,10 +24,12 @@
   },
   "homepage": "https://github.com/ShailenNaidoo/url-metadata#readme",
   "devDependencies": {
+    "@types/jsdom": "^12.2.3",
     "@vuepress/plugin-google-analytics": "^1.0.0-alpha.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.17.2",
+    "ts-node": "^8.3.0",
     "vuepress-theme-dark-new": "^0.1.2"
   },
   "dependencies": {
