@@ -18,6 +18,7 @@ module.exports = {
         "import/newline-after-import": 'off',
         "@typescript-eslint/indent": ["error", 2],
         "import/prefer-default-export": 'off',
-        "max-len": ["error", { code: 140 }]
+        "max-len": ["error", { code: 140 }],
+        "consistent-return": 'off'
     }
 };
