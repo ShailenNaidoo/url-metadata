@@ -12,6 +12,8 @@
 # below:
 .git
 .gitignore
+lib
+docs/.vuepress/dist
 
 # Node.js dependencies:
 node_modules/
