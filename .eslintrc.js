@@ -1,4 +1,11 @@
 module.exports = {
+    "settings": {
+        "import/resolver": {
+            "node": {
+            "extensions": [".js",".ts"]
+            }
+        }
+    },
     "parser": "@typescript-eslint/parser",
     "plugins": ["@typescript-eslint"],
     "env": {
