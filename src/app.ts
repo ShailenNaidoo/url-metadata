@@ -1,5 +1,5 @@
 import express, { json } from 'express';
-import { getHTML } from './getHtml';
+import { getHTML } from './helpers';
 import { parser } from './parser';
 
 const app = express();
