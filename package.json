@@ -9,7 +9,7 @@
   "scripts": {
     "docs:dev": "npx vuepress dev docs",
     "docs:build": "npx vuepress build docs",
-    "start": "node ./lib/index.js",
+    "start": "node ./index.js",
     "deploy": "gcloud app deploy --project webdata-eeba3",
     "gcp-build": "npm run docs:build && npx tsc"
   },
