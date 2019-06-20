@@ -26,6 +26,7 @@ module.exports = {
         "@typescript-eslint/indent": ["error", 2],
         "import/prefer-default-export": 'off',
         "max-len": ["error", { code: 140 }],
-        "consistent-return": 'off'
+        "consistent-return": 'off',
+        "linebreak-style": ["error", "windows"]
     }
 };
