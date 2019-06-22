@@ -6,7 +6,9 @@ import { getManifestUrl } from '../parser/manifest';
 const router = Router();
 
 router.get('/', async (req: express.Request, res: express.Response): Promise<void|boolean> => {
-  if (!req.query.url) {
+  const { url } = req.query;
+
+  if (!url) {
     res.status(400).json({
       status: 400,
       message: 'Please provide a url query parameter',
@@ -15,12 +17,12 @@ router.get('/', async (req: express.Request, res: express.Response): Promise<voi
     return false;
   }
 
-  const [html, htmlError] = await getHTML(req.query.url);
+  const [html, htmlError] = await getHTML(url);
 
   if (htmlError) {
     res.status(400).json({
       status: 400,
-      message: `${htmlError}: ${req.query.url}`,
+      message: `${htmlError}: ${url}`,
     });
     return false;
   }
