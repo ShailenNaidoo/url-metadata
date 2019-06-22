@@ -12,4 +12,4 @@ app.get('/', (req: express.Request, res: express.Response): void => {
   res.sendFile(`${__dirname}/docs/.vuepress/dist/index.html`);
 });
 
-app.listen(8000);
+app.listen(8080);
