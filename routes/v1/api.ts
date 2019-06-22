@@ -1,11 +1,11 @@
 import express, { Router } from 'express';
-import { getHTML, getManifestJSON } from '../helpers';
-import { parser } from '../parser';
-import { getManifestUrl } from '../parser/manifest';
+import { getHTML, getManifestJSON } from '../../helpers';
+import { parser } from '../../parser';
+import { getManifestUrl } from '../../parser/manifest';
 
 const router = Router();
 
-router.get('/', async (req: express.Request, res: express.Response): Promise<void|boolean> => {
+router.get('/get-metadata', async (req: express.Request, res: express.Response): Promise<void|boolean> => {
   const { url } = req.query;
 
   if (!url) {
@@ -31,7 +31,7 @@ router.get('/', async (req: express.Request, res: express.Response): Promise<voi
   res.json(getMetadata);
 });
 
-router.post('/', async (req: express.Request, res: express.Response): Promise<void|boolean> => {
+router.post('/get-metadata', async (req: express.Request, res: express.Response): Promise<void|boolean> => {
   const { url } = req.body;
 
   if (!url) {
@@ -56,7 +56,7 @@ router.post('/', async (req: express.Request, res: express.Response): Promise<vo
   res.json(getMetadata);
 });
 
-router.get('/manifest', async (req: express.Request, res: express.Response): Promise<void|boolean> => {
+router.get('/get-metadata/manifest', async (req: express.Request, res: express.Response): Promise<void|boolean> => {
   const { url }: { url: string } = req.query;
 
   if (!url) {
