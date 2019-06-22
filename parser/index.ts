@@ -14,7 +14,7 @@ interface MetaData {
   og: OpenGraphTags;
 }
 
-const createHTMLInstance = (html: string): JSDOM => new JSDOM(html);
+export const createHTMLInstance = (html: string): JSDOM => new JSDOM(html);
 
 const getHTMLTitle = (htmlInstance: JSDOM): string => htmlInstance.window.document.title;
 
