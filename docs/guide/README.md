@@ -113,6 +113,6 @@ https://webdataapi.co.za/api/v1/get-metadata/manifest?url=https://github.com
 
 There are two options for you to choose from:
 
-* [No fancy script method](https://webdataapi.co.za/api?url=https://github.com/ShailenNaidoo/webdata)
+* [No fancy script method](https://webdataapi.co.za/api/v1/get-metadata?url=https://github.com/ShailenNaidoo/webdata)
 
 * [Fancy script method](https://jsbin.com/rekozec/edit?js,console) 
