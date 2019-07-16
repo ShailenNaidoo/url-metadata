@@ -16,7 +16,7 @@ This a very simple endpoint, all you do is pass a query to the endpoint.
 https://webdataapi.co.za/api/v1/get-metadata?url=https://github.com
 ```
 
-### `/api/v1/get-metadata/manifest [POST]`
+### `/api/v1/get-metadata [POST]`
 
 If you prefer sending a json object with the URL intended for scraping, you can do that to. 
 
@@ -32,7 +32,7 @@ fetch("https://webdataapi.co.za/api/v1/get-metadata",{
 .then(res => console.log(res));
 ```
 
-### `/api/v1/get-metadata [GET]`
+### `/api/v1/get-metadata/manifest [GET]`
 
 You can also get the `manifest.json` file of a website
 
