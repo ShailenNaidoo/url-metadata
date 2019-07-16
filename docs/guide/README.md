@@ -5,23 +5,23 @@ The API is super simple, you don't need to write a fancy script because who need
 ## Endpoints
 
 ::: tip
-The base URL is `https://webdata.co.za/api`
+The base URL is `https://webdataapi.co.za/api/v1/`
 :::
 
-### `/api [GET]`
+### `/api/v1/get-metadata [GET]`
 
 This a very simple endpoint, all you do is pass a query to the endpoint.
 
 ```
-https://webdataapi.co.za/api?url=https://github.com
+https://webdataapi.co.za/api/v1/get-metadata?url=https://github.com
 ```
 
-### `/api [POST]`
+### `/api/v1/get-metadata/manifest [POST]`
 
 If you prefer sending a json object with the URL intended for scraping, you can do that to. 
 
 ```javascript
-fetch("https://webdataapi.co.za/api",{
+fetch("https://webdataapi.co.za/api/v1/get-metadata",{
 	method: "POST",
 	headers: {
 		"Accept": "application/json",
@@ -32,31 +32,19 @@ fetch("https://webdataapi.co.za/api",{
 .then(res => console.log(res));
 ```
 
-### `/api/multi [POST]`
+### `/api/v1/get-metadata [GET]`
 
-If you want to scrape a bunch of URLs, you can do that as well.
+You can also get the `manifest.json` file of a website
 
-```javascript
-const urls = ["https://dev.to","https://github.com"];
-
-fetch("https://webdataapi.co.za/api/multi",{
-	method: "POST",
-	headers: {
-		"Accept": "application/json",
-		"Content-Type": "application/json"
-    },
-	body: JSON.stringify({ urls })
-}).then(res => res.json())
-.then(res => console.log(res));
 ```
-
-### `/api/graphql`
-
-I love GraphQL so i thought why not build a GraphQL API as well, check out the [playground](https://webdataapi.co.za/api/graphql)
+https://webdataapi.co.za/api/v1/get-metadata/manifest?url=https://github.com
+```
 
 ## JSON Response
 
 [Extract GitHub Open Graph Protocol Tags](https://webdataapi.co.za/api?url=https://github.com/ShailenNaidoo/webdata) after you click the link, you should get a **JSON** response back which looks exactly like the one below
+
+#### `/api/v1/get-metadata` response
 
 ```json
 {
@@ -69,7 +57,14 @@ I love GraphQL so i thought why not build a GraphQL API as well, check out the [
     "title": "ShailenNaidoo/webdata",
     "url": "https://github.com/ShailenNaidoo/webdata",
     "description": "A free online REST API for getting an websites meta tag information relation to the Open Graph Protocol - ShailenNaidoo/webdata"
-  },
+  }
+}
+
+```
+#### `/api/v1/get-metadata/manifest` response
+
+```json
+{
   "manifest":  {
     "name": "GitHub",
     "icons": [
@@ -110,19 +105,9 @@ I love GraphQL so i thought why not build a GraphQL API as well, check out the [
         "src": "https://github.githubassets.com/apple-touch-icon-76x76.png"
       }
     ]
-  },
-  pwa: true
+  }
 }
-
 ```
-#### JSON Response Info
-
-| Property | Info |
-| -------- | ----- |
-| `title` | Extracted from the `<title>` tag |
-| `og` | Extracted data from all `<meta>` tags that conform to the [Open Graph Protocol](http://ogp.me/) |
-| `manifest` | Extracted from the `<link>` tag where `rel="manifest"` |
-| `pwa` | If `manifest` exists, then is `true` |
 
 ## Demo
 
