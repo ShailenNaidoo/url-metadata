@@ -11,7 +11,8 @@
     "docs:build": "npx vuepress build docs",
     "start": "node ./index.js",
     "deploy": "gcloud app deploy --project webdata-eeba3",
-    "gcp-build": "npm run docs:build && npx tsc"
+    "gcp-build": "npm run docs:build && npx tsc",
+    "test": "npx jest --coverage --verbose"
   },
   "repository": {
     "type": "git",
@@ -56,8 +57,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npx jest --coverage --verbose",
-      "pre-push": "npx jest --coverage --verbose"
+      "pre-commit": "yarn test",
+      "pre-push": "yarn test"
     }
   }
 }
