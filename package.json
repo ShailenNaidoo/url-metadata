@@ -55,7 +55,9 @@
     "url-parse": "^1.4.4"
   },
   "husky": {
-    "pre-commit": "npx jest --coverage --verbose",
-    "pre-push": "npx jest --coverage --verbose"
+    "hooks": {
+      "pre-commit": "npx jest --coverage --verbose",
+      "pre-push": "npx jest --coverage --verbose"
+    }
   }
 }
