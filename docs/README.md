@@ -1,9 +1,18 @@
 # Introduction
 
-[![Build Status](https://travis-ci.org/webdataorg/webdata-api.svg?branch=master)](https://travis-ci.org/webdataorg/webdata-api)
+[![Build Status](https://img.shields.io/travis/webdataorg/webdata-api.svg)](https://travis-ci.org/webdataorg/webdata-api)
 [![](https://img.shields.io/badge/language-TypeScript-blue.svg)]()
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/y/webdataorg/webdata-api.svg)]()
+[![GitHub contributors](https://img.shields.io/github/contributors/webdataorg/webdata-api.svg)]()
 
 **WebData** is a free online **REST and GraphQL API** that you can use when you want to get any websites `meta` tag information relating to the [**Open Graph Protocol**](http://ogp.me/), `manifest.json` and can tell if a site is a **PWA** or not
+
+### Features
+
+- 🎨 **Metadata Scraping**. Scrape websites for useful meta infomation
+- ⚡ **Millisecond Speeds**. Websites can be scraped in under milliseconds if they are static HTML
+- 🔌 **RESTful APIs**. Access to a wide array of sweet REST APIs.
+- 📱 **Frontend SDKs**. Use React, Vue or Angular? We got you covered with our [Frontend Libraries](/libraries/vue) 
 
 ### Example
 
