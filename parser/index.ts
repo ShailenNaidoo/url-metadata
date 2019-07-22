@@ -18,9 +18,9 @@ export const createHTMLInstance = (html: string): JSDOM => new JSDOM(html);
 
 export const getHTMLTitle = (htmlInstance: JSDOM): string => htmlInstance.window.document.title;
 
-const filterOpenGraphTags = (meta: Element): boolean => meta.getAttribute('property').search(/og:/) > -1;
+export const filterOpenGraphTags = (meta: Element): boolean => meta.getAttribute('property').search(/og:/) > -1;
 
-const mapOpenGraphTags = (meta: Element): OpenGraphTags => ({
+export const mapOpenGraphTags = (meta: Element): OpenGraphTags => ({
   [meta.getAttribute('property').replace(/og:/, '')]: meta.getAttribute('content'),
 });
 
