@@ -1,7 +1,7 @@
 import { JSDOM } from 'jsdom';
 import { createHTMLInstance } from '.';
 
-const checkifElementExists = (htmlInstance: JSDOM): string|undefined => {
+export const checkifElementExists = (htmlInstance: JSDOM): string|undefined => {
   try {
     return htmlInstance.window.document.querySelector('link[rel=manifest]').getAttribute('href');
   } catch (e) {
