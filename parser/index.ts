@@ -24,7 +24,7 @@ export const mapOpenGraphTags = (meta: Element): OpenGraphTags => ({
   [meta.getAttribute('property').replace(/og:/, '')]: meta.getAttribute('content'),
 });
 
-const reduceOpenGraphTags = (result: OpenGraphTags, value: OpenGraphTags): OpenGraphTags => ({
+export const reduceOpenGraphTags = (result: OpenGraphTags, value: OpenGraphTags): OpenGraphTags => ({
   ...result,
   ...value,
 });
