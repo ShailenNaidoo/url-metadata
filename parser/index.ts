@@ -29,12 +29,12 @@ export const reduceOpenGraphTags = (result: OpenGraphTags, value: OpenGraphTags)
   ...value,
 });
 
-const getHTMLOpenGraphTags = (htmlInstance: JSDOM): OpenGraphTags => [...htmlInstance.window.document.querySelectorAll('meta[property]')]
+export const getHTMLOpenGraphTags = (htmlInstance: JSDOM): OpenGraphTags => [...htmlInstance.window.document.querySelectorAll('meta[property]')]
   .filter(filterOpenGraphTags)
   .map(mapOpenGraphTags)
   .reduce(reduceOpenGraphTags, {});
 
-const createHTMLMetadataObject = (htmlInstance: JSDOM): MetaData => ({
+export const createHTMLMetadataObject = (htmlInstance: JSDOM): MetaData => ({
   title: getHTMLTitle(htmlInstance),
   og: getHTMLOpenGraphTags(htmlInstance),
 });
