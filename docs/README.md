@@ -21,7 +21,7 @@ Run this code in a console or from any site:
 ```js
 const url = "https://github.com/"
 
-fetch(`https://webdataapi.co.za/api?url=${url}`)
+fetch(`https://webdataapi.co.za/api/v1/get-metadata?url=${url}`)
   .then(response => response.json())
   .then(json => console.log(json));
 
