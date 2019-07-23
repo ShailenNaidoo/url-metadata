@@ -24,17 +24,17 @@ export const mapOpenGraphTags = (meta: Element): OpenGraphTags => ({
   [meta.getAttribute('property').replace(/og:/, '')]: meta.getAttribute('content'),
 });
 
-const reduceOpenGraphTags = (result: OpenGraphTags, value: OpenGraphTags): OpenGraphTags => ({
+export const reduceOpenGraphTags = (result: OpenGraphTags, value: OpenGraphTags): OpenGraphTags => ({
   ...result,
   ...value,
 });
 
-const getHTMLOpenGraphTags = (htmlInstance: JSDOM): OpenGraphTags => [...htmlInstance.window.document.querySelectorAll('meta[property]')]
+export const getHTMLOpenGraphTags = (htmlInstance: JSDOM): OpenGraphTags => [...htmlInstance.window.document.querySelectorAll('meta[property]')]
   .filter(filterOpenGraphTags)
   .map(mapOpenGraphTags)
   .reduce(reduceOpenGraphTags, {});
 
-const createHTMLMetadataObject = (htmlInstance: JSDOM): MetaData => ({
+export const createHTMLMetadataObject = (htmlInstance: JSDOM): MetaData => ({
   title: getHTMLTitle(htmlInstance),
   og: getHTMLOpenGraphTags(htmlInstance),
 });
