@@ -6,7 +6,7 @@ import { getManifestUrl } from '../../parser/manifest';
 const router = Router();
 
 router.get('/get-metadata', async (req: express.Request, res: express.Response): Promise<void|boolean> => {
-  const { url } = req.query;
+  const { url }: { url: string } = req.query;
 
   if (!url) {
     res.status(400).json({
@@ -32,7 +32,7 @@ router.get('/get-metadata', async (req: express.Request, res: express.Response):
 });
 
 router.post('/get-metadata', async (req: express.Request, res: express.Response): Promise<void|boolean> => {
-  const { url } = req.body;
+  const { url }: { url: string } = req.body;
 
   if (!url) {
     res.status(400).json({
