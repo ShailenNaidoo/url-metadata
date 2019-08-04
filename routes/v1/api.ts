@@ -12,7 +12,7 @@ router.get('/get-metadata', async (req: express.Request, res: express.Response):
     res.status(400).json({
       status: 400,
       message: 'Please provide a url query parameter',
-      example: 'https://webdataapi.co.za/api?url=https://github.com',
+      example: 'https://webdataapi.co.za/api/v1/get-metadata?url=https://github.com',
     });
     return false;
   }
@@ -63,7 +63,7 @@ router.get('/get-metadata/manifest', async (req: express.Request, res: express.R
     res.status(400).json({
       status: 400,
       message: 'Please provide a url query parameter',
-      example: 'https://webdataapi.co.za/api/manifest?url=https://github.com',
+      example: 'https://webdataapi.co.za/api/v1/get-metadata/manifest?url=https://github.com',
     });
     return false;
   }
